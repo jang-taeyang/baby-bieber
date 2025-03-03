@@ -1,20 +1,25 @@
 "use strict";
-// This script processes the lyrics from Justin Bieber's song "Baby".
-// It implements two functions:
-// - `hasBaby`: Checks if any line in the lyrics contains the word "baby" (case-insensitive).
-// - `numBabies`: Counts the occurrences of "baby" (case-insensitive).
-const { bieberBaby } = window;
-// Checks if any line in the lyrics contains "baby" (case-insensitive).
-const hasBaby = (lyrics) => lyrics.some((line) => line.toLowerCase().includes('baby'));
-// Counts occurrences of "baby" in the lyrics (case-insensitive).
-const numBabies = (lyrics) => lyrics
-    .map((line) => (line.match(/baby/gi) || []).length)
-    .reduce((sum, count) => sum + count, 0);
-// Testing outputs
-console.log(hasBaby(bieberBaby)); // Should print true
-console.log(hasBaby(bieberBaby.slice(0, 4))); // Should print false
-console.log(numBabies(bieberBaby)); // Should print 56
-console.log(numBabies(bieberBaby.slice(3, 13))); // Check partial count
-// No exports; functions are globally accessible
-window.hasBaby = hasBaby;
-window.numBabies = numBabies;
+Object.defineProperty(exports, "__esModule", { value: true });
+// Import the lyrics from the module (ensure .js extension for browser compatibility)
+const baby_bieber_lyrics_js_1 = require("./baby-bieber-lyrics.js");
+/**
+ * Checks if any lyrics contain the word "baby" (case-insensitive).
+ * @param lyrics - Array of song lyrics.
+ * @returns True if the word "baby" is found in any line.
+ */
+function hasBaby(lyrics) {
+    return lyrics.some((line) => line.toLowerCase().includes('baby'));
+}
+/**
+ * Counts how many lines in the lyrics contain the word "baby" (case-insensitive).
+ * @param lyrics - Array of song lyrics.
+ * @returns Number of lines that contain the word "baby".
+ */
+function numBabies(lyrics) {
+    return lyrics.reduce((count, line) => {
+        return count + (line.toLowerCase().includes('baby') ? 1 : 0);
+    }, 0);
+}
+// Test cases to print output in the console
+console.log(`Does the song contain "baby"? ${hasBaby(baby_bieber_lyrics_js_1.bieberBaby)}`); // Expected: true
+console.log(`Number of times "baby" appears in lyrics: ${numBabies(baby_bieber_lyrics_js_1.bieberBaby)}`); // Expected: Count of "baby" lines

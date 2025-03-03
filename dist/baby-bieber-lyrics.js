@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.bieberBaby = void 0;
-exports.bieberBaby = [
+export const bieberBaby = [
     'Oh-ooh-whoa-oh-oh-oh-oh',
     'Oh-ooh-whoa-oh-oh-oh-oh',
     'Oh-ooh-whoa-oh, oh-oh-oh-oh',
@@ -64,4 +61,4 @@ exports.bieberBaby = [
     'Now, I\'m all gone (gone, gone, gone)',
     'I\'m gone',
 ];
-exports.default = exports.bieberBaby;
+export default bieberBaby;
